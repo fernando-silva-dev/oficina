@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
 import { Button, TextInput } from "@react-native-material/core";
 import { GetPessoa, DeletePessoa, AddPessoa, UpdatePessoa } from "../Api";
 import { Formik } from "formik";
@@ -17,11 +17,11 @@ export function TelaPessoa({ navigation, route }) {
 
   const esquemaValidacao = Yup.object().shape({
     nome: Yup.string()
-      .max(50, "Muito longo!")
+      .max(50, "Nome muito longo!")
       .required("Campo obrigatório"),
     telefone: Yup.string()
-      .min(11, "Muito curto!")
-      .max(11, "Muito longo!")
+      .min(11, "Deve ter 11 caracteres!")
+      .max(11, "Deve ter 11 caracteres!")
       .required("Campo obrigatório"),
     email: Yup.string().email("e-mail inválido").required("Campo obrigatório"),
   });
@@ -103,6 +103,7 @@ export function TelaPessoa({ navigation, route }) {
                 variant="outlined"
                 textContentType="name"
               />
+              <Text style={styles.problemaValidacao}>{errors.nome}</Text>
               <TextInput
                 onChangeText={handleChange("email")}
                 onBlur={handleBlur("email")}
@@ -112,6 +113,7 @@ export function TelaPessoa({ navigation, route }) {
                 placeholder="Digite seu e-mail"
                 variant="outlined"
               />
+              <Text style={styles.problemaValidacao}>{errors.email}</Text>
               <TextInput
                 onChangeText={handleChange("telefone")}
                 onBlur={handleBlur("telefone")}
@@ -121,6 +123,7 @@ export function TelaPessoa({ navigation, route }) {
                 placeholder="Digite seu telefone"
                 variant="outlined"
               />
+              <Text style={styles.problemaValidacao}>{errors.telefone}</Text>
               {botoes}
             </View>
           );
@@ -136,6 +139,7 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: "center",
   },
+  problemaValidacao: {color: 'red'},
   botao: {
     margin: 4,
   },

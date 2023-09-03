@@ -90,3 +90,4 @@
         - Adicionar máscara nos campos de texto
         - Adicionar popups de confirmação
         - Entender os hooks
+        - Validação de número de telefone (permitir somente caracteres numéricos)
