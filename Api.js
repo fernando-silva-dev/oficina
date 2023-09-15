@@ -24,7 +24,7 @@ export async function DeletePessoa(id) {
 
 const Api = axios.create({
   // Esse IP vai ser diferente no dia
-  baseURL: "http://localhost:5164/",
+  baseURL: "http://localhost:5000/",
   timeout: 1000,
   // Cada um deve usar um id diferente para não impactarem nos dados dos outros
   headers: { clientId: "" },

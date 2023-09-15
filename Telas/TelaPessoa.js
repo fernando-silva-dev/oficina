@@ -39,7 +39,7 @@ export function TelaPessoa({ navigation, route }) {
     navigation.goBack();
   }
 
-  async function deletePessoa(id) {
+  async function deletePessoa() {
     await DeletePessoa(route.params.id);
     navigation.goBack();
   }
@@ -52,13 +52,22 @@ export function TelaPessoa({ navigation, route }) {
         onSubmit={salvarPessoa}
         validationSchema={esquemaValidacao}
       >
-        {({ handleChange, handleBlur, handleSubmit, resetForm, errors, values }) => {
+        {({
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          resetForm,
+          touched,
+          errors,
+          values,
+        }) => {
           const botoes = [];
           if (addMode || editMode) {
             if (editMode) {
               botoes.push(
                 <Button
                   style={styles.botao}
+                  key={1}
                   onPress={() => {
                     resetForm(pessoa);
                     setEditMode(false);
@@ -70,6 +79,7 @@ export function TelaPessoa({ navigation, route }) {
             botoes.push(
               <Button
                 style={styles.botao}
+                key={2}
                 onPress={handleSubmit}
                 title="Salvar"
               />
@@ -78,6 +88,7 @@ export function TelaPessoa({ navigation, route }) {
             botoes.push(
               <Button
                 style={styles.botao}
+                key={3}
                 onPress={() => setEditMode(true)}
                 title="Editar"
               />
@@ -85,12 +96,21 @@ export function TelaPessoa({ navigation, route }) {
             botoes.push(
               <Button
                 style={styles.botao}
+                key={4}
                 onPress={deletePessoa}
                 title="Deletar"
                 color="error"
               />
             );
           }
+
+          let mensagemErroNome;
+          let mensagemErroEmail;
+          let mensagemErroTelefone;
+
+          if (touched.nome) mensagemErroNome = errors.nome;
+          if (touched.email) mensagemErroEmail = errors.email;
+          if (touched.telefone) mensagemErroTelefone = errors.telefone;
 
           return (
             <View>
@@ -103,7 +123,7 @@ export function TelaPessoa({ navigation, route }) {
                 variant="outlined"
                 textContentType="name"
               />
-              <Text style={styles.problemaValidacao}>{errors.nome}</Text>
+              <Text style={styles.problemaValidacao}>{mensagemErroNome}</Text>
               <TextInput
                 onChangeText={handleChange("email")}
                 onBlur={handleBlur("email")}
@@ -113,7 +133,7 @@ export function TelaPessoa({ navigation, route }) {
                 placeholder="Digite seu e-mail"
                 variant="outlined"
               />
-              <Text style={styles.problemaValidacao}>{errors.email}</Text>
+              <Text style={styles.problemaValidacao}>{mensagemErroEmail}</Text>
               <TextInput
                 onChangeText={handleChange("telefone")}
                 onBlur={handleBlur("telefone")}
@@ -123,7 +143,9 @@ export function TelaPessoa({ navigation, route }) {
                 placeholder="Digite seu telefone"
                 variant="outlined"
               />
-              <Text style={styles.problemaValidacao}>{errors.telefone}</Text>
+              <Text style={styles.problemaValidacao}>
+                {mensagemErroTelefone}
+              </Text>
               {botoes}
             </View>
           );
@@ -139,7 +161,7 @@ const styles = StyleSheet.create({
     margin: 10,
     justifyContent: "center",
   },
-  problemaValidacao: {color: 'red'},
+  problemaValidacao: { color: "red" },
   botao: {
     margin: 4,
   },
