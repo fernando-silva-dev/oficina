@@ -8,7 +8,7 @@
     ```
     não pode dar erro e deve ter um resultado semelhante a esse:
     ![Alt text](image.png)
-- Baixar [esse arquivo do repositório](https://github.com/fernando-silva-dev/oficina/blob/main/docker-compose.yaml)
+- Baixar [esse arquivo do repositório](../docker-compose.yaml)
 - Executar esse comando no mesmo diretório do arquivo:
     ```
     docker-compose up
