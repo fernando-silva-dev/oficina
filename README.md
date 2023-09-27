@@ -91,3 +91,6 @@
         - Adicionar popups de confirmação
         - Entender os hooks
         - Validação de número de telefone (permitir somente caracteres numéricos)
+        - rodar no celular
+        - adicionar seleção de imagem
+        - adicionar typescript
