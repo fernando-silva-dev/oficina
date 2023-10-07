@@ -1,6 +1,9 @@
 # Oficina react native
 
-## Docs
+## Introdução
+Código-fonte usado como base para uma oficina introdutória de react-native, o foco era praticidade e facilidade de entendimento, portanto não obedece todas as melhores práticas.
+
+## Docs das bibliotecas usadas
 - [React native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
@@ -9,7 +12,7 @@
 - [Formik](https://formik.org/)
 - [Yup](https://www.npmjs.com/package/yup)
 
-## Passo a passo
+## Passo a passo alto nível (Da oficina em si, não do fonte)
 - Criação de um app chamado oficina
     ```bash
     npx create-expo-app Oficina
@@ -53,7 +56,7 @@
     - Apresentar Flatlist
     - Apresentar touchable
 
-- Renderizar um card para cada pessoa... estilização... vontade de ******
+- Renderizar um card para cada pessoa
 
 - Instalar biblioteca de formulários
     ```bash
@@ -83,14 +86,15 @@
         ```
     - Demonstrar validação
 
+## Rodar backend
+O passo a passo para rodar o backend se encontra [aqui](./steps-backend/passo%20a%20passo%20backend.md)
 
 - Fim
-    - Dúvidas?
     - Sugestões de continuidade
         - Adicionar máscara nos campos de texto
         - Adicionar popups de confirmação
-        - Entender os hooks
-        - Validação de número de telefone (permitir somente caracteres numéricos)
-        - rodar no celular
-        - adicionar seleção de imagem
-        - adicionar typescript
+        - Validação de número de telefone
+        - Fazer rodar no celular
+        - Adicionar seleção de imagem
+        - Adicionar typescript
+        - Adicionar modo noturno
