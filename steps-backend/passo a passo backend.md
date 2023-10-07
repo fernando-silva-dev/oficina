@@ -20,5 +20,4 @@
 
 ## Backend rodando local
 
-- Ao tentar acessar [essa url](http://localhost:5000/swagger/index.html) deve acessar um serviço swagger com nome app e dados de cachorros como se fosse um sistema de cães guia que eu tô usando pra não ter que fazer outro backend só pra isso........
-- Tentar acessar por outro computador na mesma rede, só troca o localhost pelo teu IP, se conseguir, tudo certo, se não a gente só não consegue fazer a oficina só, sem stress.
+- Ao tentar acessar [essa url](http://localhost:5000/swagger/index.html) deve acessar um serviço swagger
